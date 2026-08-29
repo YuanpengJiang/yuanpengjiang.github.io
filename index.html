@@ -4,16 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Yuanpeng Jiang</title>
+
+    <style>
+        body {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 25px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Yuanpeng Jiang</h1>
+    <div class="profile">
 
-    <p>
-        Welcome to my academic homepage.
-    </p>
+        <div class="profile-info">
+            <h1>Yuanpeng Jiang</h1>
+
+            <p>
+                Undergraduate Student<br>
+                Software Engineering
+            </p>
+
+            <p>
+                Email: ypjiang@email.sugb.edu.cn
+            </p>
+        </div>
+
+        <img class="profile-photo"
+             src="profile.jpg"
+             alt="Yuanpeng Jiang">
+
+    </div>
+
+    <hr>
 
     <h2>About Me</h2>
 
