@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Academic homepage of Yuanpeng Jiang — software engineering, program analysis, and AI for software engineering.">
+  <meta name="theme-color" content="#102b49">
+  <title>Yuanpeng Jiang | Academic Homepage</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #142b42;
+      --muted: #52677a;
+      --blue: #155c91;
+      --deep: #102b49;
+      --pale: #eaf2f8;
+      --line: #dce6ed;
+      --paper: #fff;
+      --page: #f6f9fb;
+      --width: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: #0a3c65; }
+    a:focus-visible { outline: 3px solid #e9a944; outline-offset: 4px; border-radius: 3px; }
+    .container { width: min(calc(100% - 40px), var(--width)); margin: auto; }
+    .site-header { position: sticky; top: 0; z-index: 10; background: #BDD7E7; border-bottom: 1px solid rgb(255 255 255 / 54%); box-shadow: 0 5px 18px rgb(41 92 126 / 10%); backdrop-filter: blur(12px); }
+    .header-inner { display: flex; align-items: center; min-height: 72px; gap: 28px; }
+    nav { display: flex; flex: 1 1 auto; align-self: stretch; align-items: center; gap: clamp(18px, 2.2vw, 28px); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { position: relative; display: flex; flex: 0 0 112px; align-self: stretch; align-items: center; justify-content: center; padding: 0 10px; border-radius: 8px; color: #68737b; font-size: 14px; font-weight: 600; line-height: 1.25; text-align: center; text-decoration: none; transition: background-color .24s ease, border-radius .24s ease, box-shadow .24s ease, color .24s ease; }
+    nav a::after { position: absolute; right: 22px; bottom: 10px; left: 22px; height: 2px; border-radius: 999px; background: #3f789b; content: ""; opacity: 0; transform: scaleX(.45); transition: opacity .24s ease, transform .24s ease; }
+    nav a:hover { border-radius: 0; background: #fff; box-shadow: 0 3px 8px rgb(35 83 116 / 10%); color: #36434c; }
+    nav a:hover::after { opacity: 1; transform: scaleX(1); }
+    .search-display { display: inline-flex; flex: 0 0 184px; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border: 1px solid rgb(255 255 255 / 36%); border-radius: 999px; background: #94C3DF; box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%); color: #f3f9fc; font-size: 14px; line-height: 1; }
+    .search-display svg { width: 17px; height: 17px; flex: none; stroke: currentColor; stroke-width: 2; fill: none; }
+    main { padding: 38px 0 70px; }
+    .hero { --hero-padding: clamp(30px, 5vw, 58px); position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 254px; align-items: center; gap: clamp(26px, 6vw, 75px); min-height: 385px; padding: var(--hero-padding); background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 12px 34px rgb(16 43 73 / 5%); }
+    .eyebrow { margin: 0 0 10px; color: var(--blue); font-size: 13px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 8px; color: var(--deep); font-family: "Times New Roman", Times, serif; font-size: clamp(25px, 3.2vw, 34px); line-height: 1.18; letter-spacing: -.02em; }
+    .hero-heading { position: absolute; top: var(--hero-padding); left: var(--hero-padding); z-index: 1; width: max-content; max-width: calc(100% - (var(--hero-padding) * 2)); }
+    .hero-title { margin: 0; }
+    .hero-heading .subtitle { margin: 18px 0 0; font-size: 16px; }
+    .title-rule { display: block; width: min(calc(100% + 200px), calc(100vw - (var(--hero-padding) * 2))); height: 2px; margin-top: 8px; background: #EAF5FA; }
+    .hero-content { align-self: stretch; padding-top: clamp(100px, 10vw, 118px); }
+    .chinese-name { margin-left: .14em; color: var(--muted); font-size: .85em; font-weight: inherit; letter-spacing: 0; vertical-align: baseline; white-space: nowrap; }
+    .subtitle { margin: 8px 0 18px; color: var(--blue); font-size: 17px; font-weight: 650; }
+    .intro { max-width: 655px; margin: 0; color: var(--muted); font-size: 16px; }
+    .intro + .intro { margin-top: 14px; }
+    .research-topics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 30px; }
+    .research-topics-label { margin-right: 2px; color: var(--deep); font-size: 13px; font-weight: 700; }
+    .topic-tag { display: inline-block; padding: 4px 9px; border-radius: 6px; background: var(--pale); color: #35566f; font-size: 12px; font-weight: 650; line-height: 1.25; }
+    .portrait-wrap { width: 254px; height: 300px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--pale); transform: rotate(2deg); }
+    .portrait-card { position: relative; display: block; width: 100%; height: 100%; transform: rotateY(0deg); transform-style: preserve-3d; transition: transform .6s ease-in-out; will-change: transform; }
+    .portrait { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 9px; object-fit: cover; object-position: center 25%; display: block; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .portrait-back { transform: rotateY(180deg); }
+    .portrait-toggle { display: block; width: 100%; height: 100%; padding: 0; overflow: hidden; border: 0; border-radius: 9px; background: transparent; cursor: pointer; perspective: 900px; }
+    .portrait-toggle:focus-visible { outline: 3px solid #e9a944; outline-offset: 4px; }
+    .profile-aside { width: 254px; }
+    .contact-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+    .contact-link { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 40px; padding: 7px 5px; border: 1px solid #b7d1e3; border-radius: 8px; background: #fff; color: var(--blue); font-size: 12px; font-weight: 650; line-height: 1; text-decoration: none; transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease; }
+    .contact-link svg { width: 15px; height: 15px; flex: none; fill: currentColor; }
+    .contact-link:hover { border-color: #72add0; background: #edf7fc; box-shadow: 0 4px 10px rgb(21 92 145 / 12%); color: #0a4b78; }
+    .news-entry { display: grid; grid-template-columns: 136px minmax(0, 1fr); align-items: center; column-gap: 22px; }
+    .news-date { color: var(--blue); font-family: "Times New Roman", Times, serif; font-size: 16px; font-weight: 700; line-height: 1.35; text-transform: uppercase; white-space: nowrap; }
+    .news-entry h3 { margin: 0; color: var(--deep); font-family: "Times New Roman", Times, serif; font-size: 19px; font-weight: 400; line-height: 1.35; }
+    .section { padding-top: 64px; }
+    .section-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 21px; }
+    .section-heading h2 { margin: 0; color: #005BAC; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: clamp(10px, 1.4vw, 20px); font-weight: 700; letter-spacing: .075em; text-transform: uppercase; }
+    .section-heading::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    .stack { display: grid; gap: 14px; }
+    .card { padding: 23px 26px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .date { display: inline-block; margin-bottom: 5px; color: var(--blue); font-size: 13px; font-weight: 750; letter-spacing: .02em; }
+    .card h3 { margin: 0 0 7px; color: var(--deep); font-size: 18px; line-height: 1.4; }
+    .card p, .card li { color: var(--muted); }
+    .card ul { margin: 0; padding-left: 21px; }
+    .meta { font-size: 14px; }
+    .tag { display: inline-block; margin: 2px 5px 2px 0; padding: 3px 9px; border-radius: 20px; background: var(--pale); color: var(--blue); font-size: 12px; font-weight: 650; }
+    .pub-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 14px; font-weight: 650; }
+    .awards-list { display: grid; gap: 14px; }
+    .award-item { display: flex; align-items: center; gap: 12px; margin: 0; color: var(--blue); font-weight: 600; line-height: 1.7; }
+    .award-icon { flex: none; font-size: 20px; line-height: 1; }
+    .award-item span:last-child { min-width: 0; }
+    .education-entry { display: grid; grid-template-columns: 136px minmax(0, 1fr); align-items: start; column-gap: 22px; }
+    .education-entry .date { margin: 1px 0 0; color: var(--blue); font-family: "Times New Roman", Times, serif; font-size: 16px; font-weight: 700; line-height: 1.35; white-space: nowrap; }
+    .education-details h3 { margin: 0 0 5px; color: var(--deep); font-family: "Times New Roman", Times, serif; font-size: 20px; font-weight: 700; line-height: 1.25; }
+    .education-details p { margin: 0; color: var(--muted); font-family: "Times New Roman", Times, serif; font-size: 16px; line-height: 1.45; }
+    .publication-entry { position: relative; width: 100%; padding-bottom: 25px; }
+    .publication-entry h3 { margin: 0 0 8px; color: var(--deep); font-family: "Times New Roman", Times, serif; font-size: 21px; line-height: 1.3; }
+    .publication-authors, .publication-venue, .corresponding-note { margin: 0; }
+    .publication-authors { color: var(--ink); font-family: "Times New Roman", Times, serif; font-size: 16px; line-height: 1.45; }
+    .publication-venue { margin-top: 3px; color: var(--muted); font-family: "Times New Roman", Times, serif; font-size: 16px; line-height: 1.45; }
+    .corresponding-note { position: absolute; right: 0; bottom: 0; margin: 0; color: var(--muted); font-size: 13px; font-style: italic; text-align: right; }
+    .publication-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .publication-link { display: inline-flex; align-items: center; justify-content: center; min-height: 31px; padding: 5px 11px; border: 1px solid #a7cbe1; border-radius: 6px; background: #fff; color: var(--blue); font-size: 13px; font-weight: 650; line-height: 1; text-decoration: none; transition: background-color .2s ease, border-color .2s ease, color .2s ease; }
+    .publication-link:hover { border-color: #5f9cc2; background: #edf7fc; color: #0a4b78; }
+    footer { padding: 24px 0 36px; border-top: 1px solid #EFF3FF; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    @media (max-width: 750px) {
+      .header-inner { min-height: 60px; gap: 16px; }
+      nav { gap: 24px; padding: 0; }
+      .search-display { flex-basis: 142px; height: 34px; padding: 0 10px; }
+      html { scroll-padding-top: 76px; }
+      main { padding-top: 20px; }
+      .hero { --hero-padding: 23px; grid-template-columns: 1fr; gap: 22px; padding-top: 128px; }
+      .hero-title { font-size: clamp(22px, 7vw, 28px); }
+      .hero-content { padding-top: 0; }
+      .profile-aside { grid-row: 1; width: 180px; }
+      .portrait-wrap { width: 180px; height: 210px; transform: rotate(0); }
+      .contact-links { grid-template-columns: 1fr; }
+      .contact-link { min-height: 36px; }
+      .news-entry { grid-template-columns: 112px minmax(0, 1fr); column-gap: 16px; }
+      .education-entry { grid-template-columns: 112px minmax(0, 1fr); column-gap: 16px; }
+      .section { padding-top: 48px; }
+    }
+    @media (max-width: 540px) {
+      .header-inner { gap: 0; }
+      .search-display { display: none; }
+      nav { gap: 24px; }
+    }
+    @media (max-width: 420px) {
+      .container { width: min(calc(100% - 26px), var(--width)); }
+      .hero { padding-right: 23px; padding-bottom: 23px; padding-left: 23px; }
+      .card { padding: 19px; }
+      .education-entry { grid-template-columns: 104px minmax(0, 1fr); column-gap: 12px; }
+      .education-entry .date { font-size: 15px; }
+      .education-details h3 { font-size: 18px; }
+      .news-entry { grid-template-columns: 104px minmax(0, 1fr); column-gap: 12px; }
+      .news-date { font-size: 15px; }
+      .news-entry h3 { font-size: 17px; }
+      .publication-entry h3 { font-size: 19px; }
+      footer { font-size: 11px; }
+      .footer-inner { gap: 10px; white-space: nowrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .portrait-card { transition-duration: .01ms; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#education">Education</a>
+      </nav>
+      <div class="search-display" aria-hidden="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.25 4.25"></path></svg>
+        <span>Search</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero" aria-labelledby="home-title">
+      <div class="hero-heading">
+        <h1 id="home-title" class="hero-title">Yuanpeng Jiang<span class="chinese-name">（蒋袁鹏）</span></h1>
+        <p class="subtitle">B.Eng. Student · China University of Geosciences (Beijing)</p>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <div class="hero-content">
+        <p class="intro">Hi! 👋🏻 I am an undergraduate student in Software Engineering at China University of Geosciences (Beijing), and I will pursue doctoral studies at Tianjin University. 🎓</p>
+        <p class="intro">My early research focused on review-based recommendation systems and deep learning, while my current interests are gradually shifting toward <strong>AI for Software Engineering (AI4SE)</strong>. I am particularly interested in AI-assisted code editing, LLM-based software agents, software repository mining, software security, and formal verification.</p>
+        <div class="research-topics" aria-label="Research Topics">
+          <span class="research-topics-label">Research: </span>
+          <span class="topic-tag">AI4SE</span>
+          <span class="topic-tag">Code Edit</span>
+          <span class="topic-tag">Software Security</span>
+          <span class="topic-tag">AI4FM</span>
+        </div>
+      </div>
+      <div class="profile-aside">
+        <div class="portrait-wrap">
+          <button class="portrait-toggle" type="button" aria-label="Switch portrait photo" aria-pressed="false">
+            <span class="portrait-card">
+              <img class="portrait portrait-front" src="assets/profile.jpg" alt="Portrait of Yuanpeng Jiang" width="238" height="284">
+              <img class="portrait portrait-back" src="assets/profile1.png" alt="" aria-hidden="true" width="238" height="284">
+            </span>
+          </button>
+        </div>
+        <div class="contact-links" aria-label="Contact links">
+          <a class="contact-link" href="mailto:jiangyuanpeng@cugb.edu.cn" aria-label="Email Yuanpeng Jiang">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5zm2 .3v.38l7 5.1 7-5.1V5.8a.5.5 0 0 0-.5-.5h-13a.5.5 0 0 0-.5.5M5 8.67v9.83c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V8.67l-6.41 4.66a1 1 0 0 1-1.18 0z"></path></svg>
+            <span>Email</span>
+          </a>
+          <a class="contact-link" href="https://scholar.google.com/scholar?q=Yuanpeng+Jiang" target="_blank" rel="noopener noreferrer" aria-label="Search Yuanpeng Jiang on Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l4 2.18v6.07l7 3.82 7-3.82v-6.07l2-1.09V17h2V9zm5 9.26v3.8l-5 2.73-5-2.73v-3.8l5 2.73zM12 5.28 18.2 8.7 12 12.08 5.8 8.7z"></path></svg>
+            <span>Scholar</span>
+          </a>
+          <a class="contact-link" href="https://github.com/YuanpengJiang" target="_blank" rel="noopener noreferrer" aria-label="Yuanpeng Jiang on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 0 0-3.04 18.7c.48.09.65-.2.65-.46v-1.69c-2.65.58-3.21-1.13-3.21-1.13-.43-1.1-1.06-1.39-1.06-1.39-.87-.6.07-.59.07-.59.96.07 1.47.99 1.47.99.86 1.47 2.24 1.05 2.79.8.09-.62.34-1.05.61-1.29-2.11-.24-4.33-1.05-4.33-4.7 0-1.04.37-1.89.98-2.56-.1-.24-.43-1.21.09-2.52 0 0 .8-.26 2.64.98A9.1 9.1 0 0 1 12 7.67a9.1 9.1 0 0 1 2.4.32c1.84-1.24 2.64-.98 2.64-.98.52 1.31.19 2.28.09 2.52.61.67.98 1.52.98 2.56 0 3.66-2.23 4.45-4.35 4.68.35.3.65.87.65 1.75v2.6c0 .26.17.56.66.46A9.6 9.6 0 0 0 12 2.4"></path></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section" aria-labelledby="news-title">
+      <div class="section-heading"><h2 id="news-title">News</h2></div>
+      <article class="news-entry">
+        <time class="news-date" datetime="2026-09">Sep 2026</time>
+        <h3>One paper accepted by <em>Neural Networks</em> 🎉 </h3>
+      </article>
+    </section>
+
+    <section id="publications" class="section" aria-labelledby="pub-title">
+      <div class="section-heading"><h2 id="pub-title">Publications</h2></div>
+      <article class="publication-entry">
+        <h3>Position-aware attentional neural network for review-based recommendation</h3>
+        <p class="publication-authors"><strong>Yuanpeng Jiang</strong>, Teng Long*, Zhangbing Zhou</p>
+        <p class="publication-venue"><em>Neural Networks</em>, 205 (Part C), 109585, 2026</p>
+        <div class="publication-links">
+          <a class="publication-link" href="https://doi.org/10.1016/j.neunet.2026.109585" target="_blank" rel="noopener noreferrer">Paper</a>
+          <a class="publication-link" href="https://github.com/YuanpengJiang/PAAN_Recommender" target="_blank" rel="noopener noreferrer">Code</a>
+        </div>
+        <p class="corresponding-note">* Corresponding author</p>
+      </article>
+    </section>
+
+    <section id="awards" class="section" aria-labelledby="awards-title">
+      <div class="section-heading"><h2 id="awards-title">Awards</h2></div>
+      <div class="awards-list">
+        <p class="award-item"><span class="award-icon" aria-hidden="true">🏆</span><span>National Scholarship for Undergraduate Students, 2023–2024 Academic Year (Dec. 2024)</span></p>
+        <p class="award-item"><span class="award-icon" aria-hidden="true">🥉</span><span>National Third Prize, Chinese Collegiate Computing Competition (Jul. 2026)</span></p>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="section-heading"><h2 id="education-title">Education</h2></div>
+      <div class="education-entry">
+        <span class="date">2023 – 2027</span>
+        <div class="education-details">
+          <h3>China University of Geosciences (Beijing)</h3>
+          <p>B.Eng. student in Software Engineering · School of Artificial Intelligence</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Yuanpeng Jiang</span>
+      <span>Last updated September 2026</span>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const portraitToggle = document.querySelector('.portrait-toggle');
+      const portraitCard = portraitToggle?.querySelector('.portrait-card');
+      if (!portraitToggle || !portraitCard) return;
+
+      let rotation = 0;
+      let showingSecondary = false;
+      portraitToggle.addEventListener('click', () => {
+        if (portraitToggle.classList.contains('is-flipping')) return;
+
+        rotation += 180;
+        showingSecondary = !showingSecondary;
+        portraitToggle.classList.add('is-flipping');
+        portraitCard.style.transform = `rotateY(${rotation}deg)`;
+        portraitToggle.setAttribute('aria-pressed', String(showingSecondary));
+        portraitCard.addEventListener('transitionend', () => {
+          portraitToggle.classList.remove('is-flipping');
+        }, { once: true });
+      });
+    })();
+  </script>
+</body>
+</html>
